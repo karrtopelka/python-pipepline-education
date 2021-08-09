@@ -25,15 +25,12 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-          if: runner.os == 'Linux'; then
+          if: runner.os == 'Linux'
             pylint `ls -R|grep .py$|xargs`
-          elif: runner.os == 'Windows'; then
+          if: runner.os == 'Windows'
             pylint `find . -name "*.py"`
-          elif runner.os == 'macOS'; then
+          if runner.os == 'macOS'
             pylint `ls -R|grep .py$|xargs`
-          else
-            echo "$RUNNER_OS not supported"
-            exit 1
           fi
     - name: Start main python file
       run: python main.py
