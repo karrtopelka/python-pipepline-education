@@ -25,11 +25,11 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-          if: runner.os == 'Linux'
+          if: runner.os == 'Linux';
             pylint `ls -R|grep .py$|xargs`
-          if: runner.os == 'Windows'
+          if: runner.os == 'Windows';
             pylint `find . -name "*.py"`
-          if runner.os == 'macOS'
+          if runner.os == 'macOS';
             pylint `ls -R|grep .py$|xargs`
           fi
     - name: Start main python file
