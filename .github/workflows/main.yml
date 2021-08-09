@@ -27,10 +27,13 @@ jobs:
       run: |
           if: [ "$RUNNER_OS" == "Linux" ]; then
             pylint `ls -R|grep .py$|xargs`
-          if: [ "$RUNNER_OS" == "Windows" ]; then
+          elif: [ "$RUNNER_OS" == "Windows" ]; then
             pylint `find . -name "*.py"`
-          if [ "$RUNNER_OS" == "macOS" ]; then
+          elif [ "$RUNNER_OS" == "macOS" ]; then
             pylint `ls -R|grep .py$|xargs`
+          else
+            echo "$RUNNER_OS not supported"
+            exit 1
           fi
       shell: bash
     - name: Start main python file
