@@ -29,7 +29,7 @@ jobs:
           pylint `ls -R|grep .py$|xargs`
         elif [ "$RUNNER_OS" == "Windows" ]; then
           pylint `find . -name "*.py"`
-        elif [ "$RUNNER_OS" == "Windows" ]; then
+        elif [ "$RUNNER_OS" == "macOS" ]; then
           pylint `ls -R|grep .py$|xargs`
         else
           echo "$RUNNER_OS not supported"
