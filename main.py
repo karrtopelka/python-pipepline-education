@@ -1,3 +1,7 @@
+"""
+Module to run hello world
+"""
+
 def main():
     """
     main function to run the application
